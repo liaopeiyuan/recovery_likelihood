@@ -114,6 +114,7 @@ DATASETS = {
   "mnist": functools.partial(SimpleDataset, name="mnist"),
   "svhn": functools.partial(SimpleDataset, name="svhn"),
   "cifar10": functools.partial(SimpleDataset, name="cifar10"),
+  "artbench": functools.partial(SimpleDataset, name="artbench"),
   "cifar100": functools.partial(SimpleDataset, name="cifar100"),
   "celebahq128": functools.partial(SimpleDataset, name="celebahq128"),
   "celebahq256": functools.partial(SimpleDataset, name="celebahq256"),
