@@ -14,13 +14,13 @@ def pack(image, label):
 
 
 class SimpleDataset:
-  DATASET_NAMES = ('cifar10', 'celebahq128', 'celebahq256', 'svhn', 'mnist', 'celeba', 'lsun_church64',
+  DATASET_NAMES = ('cifar10', 'artbench', 'celebahq128', 'celebahq256', 'svhn', 'mnist', 'celeba', 'lsun_church64',
                    'lsun_bedroom64', 'lsun_bedroom128', 'lsun_church128', 'cifar100')
 
   def __init__(self, name, tfds_data_dir):
     self._name = name
     self._data_dir = tfds_data_dir
-    self._img_size = {'svhn': 32, 'mnist': 28, 'cifar10': 32, 'cifar100': 32, 'celebahq128': 128, 'celebahq256': 256, 'celeba': 32,
+    self._img_size = {'svhn': 32, 'mnist': 28, 'cifar10': 32, 'artbench': 32, 'cifar100': 32, 'celebahq128': 128, 'celebahq256': 256, 'celeba': 32,
                       'lsun_church64': 64, 'lsun_bedroom64': 64, 'lsun_church128': 128, 'lsun_bedroom128': 128}[name]
     if name == 'mnist':
       self._img_shape = [self._img_size, self._img_size, 1]
@@ -28,6 +28,7 @@ class SimpleDataset:
       self._img_shape = [self._img_size, self._img_size, 3]
     self._tfds_name = {
       'svhn': 'svhn_cropped:3.0.0',
+      'artbench': 'artcifar10',
       'cifar10': 'cifar10:3.0.2',
       'cifar100': 'cifar100:3.0.2',
       'celebahq128': 'celeb_a_hq/128',
@@ -42,6 +43,7 @@ class SimpleDataset:
     self.num_train_examples, self.num_eval_examples = {
       'svhn': (73257, 26032),
       'cifar10': (50000, 10000),
+      'artbench': (50000, 10000),
       'cifar100': (50000, 10000),
       'celebahq128': (30000, 0),
       'celebahq256': (30000, 0),
@@ -56,6 +58,7 @@ class SimpleDataset:
     self.eval_split_name = {
       'svhn': 'test',
       'cifar10': 'test',
+      'artbench': 'test',
       'cifar100': 'test',
       'celebahq128': None,
       'celebahq256': None,
