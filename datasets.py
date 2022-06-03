@@ -6,6 +6,7 @@ All images are scaled to [0, 255] instead of [0, 1]
 import functools
 import tensorflow as tf
 import tensorflow_datasets as tfds
+import tf_dataset.artcifar
 
 
 def pack(image, label):
