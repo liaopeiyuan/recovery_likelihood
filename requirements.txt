@@ -1,11 +1,11 @@
 absl-py
-tensorflow==2.2.0
-tensorflow-addons
-tensorflow_io==0.14.0
+tensorflow==2.1.0
+tensorflow-addons==0.9.1
+tensorflow_io==0.12.0
 retrying
 matplotlib
 Pillow
-tensorflow-probability==0.9.0
+tensorflow-probability
 tensorflow-datasets==3.0.0
 google-cloud-storage
 google-cloud-logging

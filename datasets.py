@@ -94,19 +94,19 @@ class SimpleDataset:
     return ds
 
   def train_input_fn(self, params):
-    ds = tfds.load(self._tfds_name, split='train', shuffle_files=True, data_dir=self._data_dir, try_gcs=True)
+    ds = tfds.load(self._tfds_name, split='train', shuffle_files=True, data_dir=self._data_dir, try_gcs=False)
     ds = ds.repeat()
     ds = ds.shuffle(50000)
     return self._proc_and_batch(ds, params['batch_size'])
 
   def train_one_pass_input_fn(self, params):
-    ds = tfds.load(self._tfds_name, split='train', shuffle_files=False, data_dir=self._data_dir, try_gcs=True)
+    ds = tfds.load(self._tfds_name, split='train', shuffle_files=False, data_dir=self._data_dir, try_gcs=False)
     return self._proc_and_batch(ds, params['batch_size'])
 
   def eval_input_fn(self, params):
     if self.eval_split_name is None:
       return None
-    ds = tfds.load(self._tfds_name, split=self.eval_split_name, shuffle_files=False, data_dir=self._data_dir, try_gcs=True)
+    ds = tfds.load(self._tfds_name, split=self.eval_split_name, shuffle_files=False, data_dir=self._data_dir, try_gcs=False)
     return self._proc_and_batch(ds, params['batch_size'])
 
 
